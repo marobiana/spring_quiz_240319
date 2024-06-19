@@ -22,8 +22,8 @@ public class SellerBO {
 	
 	// input:X
 	// output:Seller(채워져 있거나 null)
-	public Seller getLatestUser() {
-		return sellerMapper
+	public Seller getLatestSeller() {
+		return sellerMapper.selectLatestSeller();
 	}
 }
 
