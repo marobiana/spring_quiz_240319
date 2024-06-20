@@ -43,9 +43,18 @@ public class Lesson04Quiz01Controller {
 	// http://localhost:8080/lesson04/quiz01/seller-info-view
 	// http://localhost:8080/lesson04/quiz01/seller-info-view?id=3
 	@GetMapping("/seller-info-view")
-	public String sellerInfoView(Model model) {
+	public String sellerInfoView(
+			@RequestParam(value = "id", required = false) Integer id, 
+			Model model) {
+		
+		Seller seller = null;
+		
 		// 데이터 조회
-		Seller seller = sellerBO.getLatestSeller();
+		if (id == null) {
+			seller = sellerBO.getLatestSeller();
+		} else {
+			seller = sellerBO.getSellerById(id);
+		}
 		
 		// Model에 데이터를 담아둔다.
 		model.addAttribute("seller", seller);
