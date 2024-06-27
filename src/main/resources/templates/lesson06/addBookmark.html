@@ -62,8 +62,11 @@
 					
 					// response
 					// callback 함수
-					, success:function(data) { // data: String
-						if (data == "성공") {
+					, success:function(data) { // data: JSON String -> jquery ajax 함수가 parsing => js dictionary
+						// {"code":200, "result":"성공"}
+						//alert(data.result);	
+					
+						if (data.result == "성공") {
 							// 목록 화면으로 이동 - GET Method 요청
 							location.href = "/lesson06/bookmark-list-view";
 						}

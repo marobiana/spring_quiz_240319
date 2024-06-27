@@ -14,6 +14,23 @@
 		FROM
 			`bookmark`
 	</select>
+	
+	<insert id="insertBookmark" parameterType="map">
+		INSERT INTO `bookmark`
+		(
+			`name`
+			,`url`
+			,`createdAt`
+			,`updatedAt`
+		)
+		VALUES
+		(
+			#{name}
+			, #{url}
+			, NOW()
+			, NOW()
+		)
+	</insert>
 </mapper>
 
 
