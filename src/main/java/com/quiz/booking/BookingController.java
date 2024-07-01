@@ -90,4 +90,23 @@ public class BookingController {
 	public String checkBookingView() {
 		return "booking/checkBooking";
 	}
+	
+	// AJAX 요청 - 예약 조회
+	@ResponseBody
+	@PostMapping("/check-booking")
+	public Map<String, Object> checkBooking(
+			@RequestParam("name") String name,
+			@RequestParam("phoneNumber") String phoneNumber) {
+		
+		// db select
+		
+		// 응답값 => JSON
+		Map<String, Object> result = new HashMap<>();
+		
+		return result;
+	}
 }
+
+
+
+
